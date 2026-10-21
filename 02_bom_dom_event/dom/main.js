@@ -154,6 +154,10 @@ function createEventCard(newEvent) {
     article.appendChild(attendees);
     article.appendChild(button);
 
+    button.addEventListener("click", () => {
+        alert("You clicked the button!");
+    })
+
     return article;
 
 }
@@ -176,5 +180,33 @@ if (dynamicContainer) {
     const card = createEventCard(newEvent);
     dynamicContainer.prepend(card);
 }
+
+
+// Events in JavaScript
+
+function handleClick() {
+    console.log("You clicked the button!");
+}
+
+document.getElementById("create-event-btn").addEventListener("click", handleClick);
+
+
+const browseBtn = document.getElementById("browse-events-btn");
+
+const featuredSection = document.getElementById("featured-events-section");
+
+
+if (browseBtn && featuredSection){
+    browseBtn.addEventListener("click", () => {
+        featuredSection.scrollIntoView({behavior:"instant"})
+    });
+}
+
+// scrollIntoView is a method that scrolls the element into view.
+/*
+    behavior: "smooth", // "smooth" (animation) or "auto" (instant)
+    block: "start",     // Vertical alignment: "start", "center", "end", "nearest"
+    inline: "nearest"   // Horizontal alignment: "start", "center", "end", "nearest"
+*/
 
 
